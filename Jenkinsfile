@@ -18,13 +18,13 @@ pipeline {
       }
       steps{
         script {
-          if (BRANCH_NAME == 'dev'){
+          if (env.BRANCH_NAME == 'dev'){
             env.NAME = "${NAME_dev}"
           }
-          if (BRANCH_NAME == 'uat'){
+          if (env.BRANCH_NAME == 'uat'){
             env.NAME = "${NAME_uat}"
           }
-          if (BRANCH_NAME == 'pre_prod'){
+          if (env.BRANCH_NAME == 'pre_prod'){
             env.NAME = "${NAME_pre_prod}"
           }          
         }

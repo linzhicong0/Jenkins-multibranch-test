@@ -4,7 +4,7 @@ pipeline {
   stages {
     stage('Hello world') {
       when {
-        anyof {
+        anyOf {
           branch 'dev';
           branch 'uat';
           branch 'pre-prod'

@@ -21,6 +21,7 @@ pipeline {
           echo env.BRANCH_NAME
           if (env.BRANCH_NAME == 'dev'){
             env.NAME = "${NAME_dev}"
+            echo env.NAME
           }
           if (env.BRANCH_NAME == 'uat'){
             env.NAME = "${NAME_uat}"

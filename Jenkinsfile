@@ -36,7 +36,9 @@ pipeline {
     }
     stage('Build') {
       steps {
-        sh 'echo ${env.NAME}'
+        script {
+          echo env.NAME
+        }
       }
     }
   }

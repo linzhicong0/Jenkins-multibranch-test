@@ -28,9 +28,11 @@ pipeline {
           }
           if (env.BRANCH_NAME == 'pre_prod'){
             env.NAME = "${NAME_pre_prod}"
-          }          
+          }
+
+          echo ${NAME}
         }
-        sh 'echo ${NAME}'
+        
       }
     }
   }

@@ -7,7 +7,7 @@ pipeline {
     NAME_prod = 'PROD'
   }
   stages {
-    stage('Set Variables') {
+    stage('Set Variables For Non-Prod') {
       when {
         anyOf {
           branch 'dev';
@@ -17,10 +17,8 @@ pipeline {
       }
       steps{
         script {
-          echo env.BRANCH_NAME
           if (env.BRANCH_NAME == 'dev'){
             env.NAME = env.NAME_dev
-            echo env.NAME
           }
           if (env.BRANCH_NAME == 'uat'){
             env.NAME = env.NAME_uat
@@ -29,9 +27,17 @@ pipeline {
             env.NAME = env.NAME_pre_prod
           }
 
-          echo env.NAME
         }
-        
+      }
+    }
+        stage('Set Variables For Prod') {
+      when {
+          branch 'main'
+      }
+      steps{
+        script {
+          env.NAME = env.NAME_prod
+        }
       }
     }
     stage('Build') {

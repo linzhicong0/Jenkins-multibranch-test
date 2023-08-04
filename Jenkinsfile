@@ -20,17 +20,17 @@ pipeline {
         script {
           echo env.BRANCH_NAME
           if (env.BRANCH_NAME == 'dev'){
-            env.NAME = "${NAME_dev}"
+            env.NAME = env.NAME_dev
             echo env.NAME
           }
           if (env.BRANCH_NAME == 'uat'){
-            env.NAME = "${NAME_uat}"
+            env.NAME = env.NAME_uat
           }
           if (env.BRANCH_NAME == 'pre_prod'){
-            env.NAME = "${NAME_pre_prod}"
+            env.NAME = env.NAME_pre_prod
           }
 
-          echo ${NAME}
+          echo NAME
         }
         
       }

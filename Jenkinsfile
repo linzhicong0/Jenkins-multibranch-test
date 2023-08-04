@@ -21,6 +21,7 @@ pipeline {
           echo env.BRANCH_NAME
           if (env.BRANCH_NAME == 'dev'){
             env.NAME = env.NAME_dev
+            echo "name_dev:${env.NAME_dev}"
             echo env.NAME
           }
           if (env.BRANCH_NAME == 'uat'){
@@ -30,7 +31,7 @@ pipeline {
             env.NAME = env.NAME_pre_prod
           }
 
-          echo NAME
+          echo env.NAME
         }
         
       }

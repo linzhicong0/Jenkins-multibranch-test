@@ -16,7 +16,7 @@ pipeline {
         }
       }
       environment {
-        NAME = ${'NAME_'${BRANCH_NAME}}
+        NAME = "${'NAME_'${BRANCH_NAME}}"
       }
       steps{
         sh 'echo ${NAME}'

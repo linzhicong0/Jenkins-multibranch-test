@@ -3,7 +3,7 @@ pipeline {
   environment {
     NAME_dev = 'DEV'
     NAME_uat = 'UAT'
-    'NAME_pre-prod' = 'PRE_RPDO'
+    NAME_pre_prod = 'PRE_RPDO'
     NAME_prod = 'PROD'
   }
   stages {

@@ -5,10 +5,9 @@ pipeline {
     NAME_uat = 'UAT'
     NAME_pre_prod = 'PRE_RPDO'
     NAME_prod = 'PROD'
-    NAME = ''
   }
   stages {
-    stage('Hello world') {
+    stage('Set Variables') {
       when {
         anyOf {
           branch 'dev';
@@ -21,7 +20,6 @@ pipeline {
           echo env.BRANCH_NAME
           if (env.BRANCH_NAME == 'dev'){
             env.NAME = env.NAME_dev
-            echo "name_dev:${env.NAME_dev}"
             echo env.NAME
           }
           if (env.BRANCH_NAME == 'uat'){
@@ -34,6 +32,11 @@ pipeline {
           echo env.NAME
         }
         
+      }
+    }
+    stage('Build') {
+      steps {
+        sh 'echo ${env.NAME}'
       }
     }
   }

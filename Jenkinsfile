@@ -4,7 +4,12 @@ pipeline {
   stages {
     stage('Hello world') {
       when {
-        branch 'dev' 'uat' 'pre-prod'
+        anyof {
+          branch 'dev';
+          branch 'uat';
+          branch 'pre-prod'
+        }
+        
       }
       steps{
         sh 'echo hello'

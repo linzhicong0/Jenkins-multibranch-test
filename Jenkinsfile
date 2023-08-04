@@ -18,6 +18,7 @@ pipeline {
       }
       steps{
         script {
+          echo env.BRANCH_NAME
           if (env.BRANCH_NAME == 'dev'){
             env.NAME = "${NAME_dev}"
           }
